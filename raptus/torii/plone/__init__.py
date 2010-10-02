@@ -17,6 +17,6 @@ def getPlone():
 
 
 scripts = dict(rebuild_catalogs='%s/scripts/rebuild_catalogs.py' % os.path.dirname(__file__),
-               reinstall='%s/scripts/reinstall.py' % os.path.dirname(__file__))
+               quickinstall='%s/scripts/quickinstall.py' % os.path.dirname(__file__))
 
 properties = dict(plone=getPlone)
