@@ -48,6 +48,7 @@ if arguments[3] == 'list':
         conversation(carrier.PrintText('='*(longest_title+longest_value)))
 else:
     transaction.begin()
+
     products = arguments[3:]
     for pro in products:
         if not installer.isProductAvailable(pro):
