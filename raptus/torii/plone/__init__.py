@@ -1,7 +1,9 @@
 import os
 import logging
 from zope.app import publication
-from zope import site
+# under plone 4 this import has moved to zope.site in a own package
+# http://pypi.python.org/pypi/zope.site/3.9.2#id12
+from zope.app.component import site
 
 _params = None
 def initialize(params):
@@ -20,22 +22,26 @@ def getPlone():
                 break
     else:
         plone = None
-
     
+    if plone is not None:
+        setSiteManager(plone)
+    else:
+        logging.warning('plone-location is not correctly setted')
+    return plone
+
+def setSiteManager(plone):
     """ set a event for the plone siteManager inside the running 
         torii-thread. This way we can use the full component
         architecture on the given plone instance.
         more info --> zope/site/site.txt
     """
-    if plone is not None:
-        ev = publication.interfaces.BeforeTraverseEvent(plone, plone.REQUEST)
-        site.threadSiteSubscriber(plone, ev)
-    else:
-        logging.warning('plone-location is not correctly setted')
-    return plone
+    ev = publication.interfaces.BeforeTraverseEvent(plone, plone.REQUEST)
+    site.threadSiteSubscriber(plone, ev)
 
 
 scripts = dict(rebuild_catalogs='%s/scripts/rebuild_catalogs.py' % os.path.dirname(__file__),
                quickinstall='%s/scripts/quickinstall.py' % os.path.dirname(__file__))
 
 properties = dict(plone=getPlone)
+
+utilities = dict(setSiteManager=setSiteManager)
