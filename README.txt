@@ -1,11 +1,13 @@
 Introduction
 ============
-Torii allow the access to a running zope server over a unix-domain-socket. Torii make
-also possible to run scripts from the command line to the server. In addition it's provide a python-
-prompt connected to the zope-server. It means the full access of the Zope and ZODB at the runtime.
+Torii allows access to a running zope server over a unix-domain-socket. Torii makes it
+also possible to run scripts from the command line on the server. In addition it provides 
+a python-prompt. That means full access to the Zope and ZODB at runtime.
 
-This additional package make the interface to plone. It provides some scripts, a global 
-variable 'plone' and set the siteManager(access to persistence zope.components ) at the startup
+This additional package offers the interface to plone. It provides some scripts,
+a global variable 'plone' and sets the siteManager(access to persistence zope.components )
+at startup time.
+
 
 Use it with buildout::
 
@@ -25,4 +27,6 @@ Copyright and credits
 raptus.torii is copyright 2010 by raptus_ , and is licensed under the GPL. 
 See LICENSE.txt for details.
 
-.. _raptus: http://www.raptus.ch/ 
+.. _raptus: http://www.raptus.com/ 
+
+
