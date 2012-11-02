@@ -6,7 +6,7 @@ version = '1.0b1'
 setup(name='raptus.torii.plone',
       version=version,
       description="extends raptus.torii",
-      long_description=open("README.txt").read() + "\n" +
+      long_description=open("README.rst").read() + "\n" +
                        open(os.path.join("docs", "HISTORY.txt")).read(),
       # Get more strings from http://www.python.org/pypi?%3Aaction=list_classifiers
       classifiers=[
@@ -19,7 +19,7 @@ setup(name='raptus.torii.plone',
       keywords='zope remote prompt zodb',
       author='Raptus AG',
       author_email='dev@raptus.com',
-      url='https://svn.plone.org/svn/collective/raptus.torii.plone',
+      url='https://github.com/Raptus/raptus.torii.plone',
       license='GPL',
       packages=find_packages(exclude=['ez_setup']),
       namespace_packages=['raptus', 'raptus.torii'],
